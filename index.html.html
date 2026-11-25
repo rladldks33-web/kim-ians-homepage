@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>김이안 | 홈페이지 제작 전문가</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1f6b47; --bg-deep:#174f35; --ink:#f4f8f1; --muted:#cfe3d4; --line:rgba(244,248,241,.28);
+  --accent:#ffd36b; --on-accent:#1b3a28; --panel:#f4f8f1; --on-panel:#17382a;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#144230; --bg-deep:#0f3223; --ink:#eef5ec; --muted:#b9d3c0; --line:rgba(238,245,236,.24);
+    --panel:#e9f1e6; --on-panel:#14301f; --on-accent:#17301f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#144230; --bg-deep:#0f3223; --ink:#eef5ec; --muted:#b9d3c0; --line:rgba(238,245,236,.24);
+  --panel:#e9f1e6; --on-panel:#14301f; --on-accent:#17301f; color-scheme: dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.7;font-size:17px;word-break:keep-all}
+[hidden]{display:none!important}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+header{padding:28px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+header a.logo{font-weight:800;font-size:20px;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+header nav a{color:var(--ink);text-decoration:none;margin-left:20px;font-size:15px}
+header a:hover,header a:focus-visible{text-decoration:underline;outline:none}
+.hero{padding:88px 0 96px}
+.hero p.lead{color:var(--muted);margin:0 0 18px;font-size:18px}
+.hero h1{font-weight:900;font-size:clamp(44px,10vw,96px);line-height:1.12;margin:0 0 28px;letter-spacing:-.01em}
+.hero h1 span{display:block;font-size:.42em;font-weight:700;margin-top:14px;color:var(--accent);letter-spacing:0}
+.hero p.sub{max-width:34em;font-size:19px;margin:0 0 36px}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);font-weight:700;padding:14px 26px;border-radius:999px;text-decoration:none}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.tel{display:inline-block;margin-left:18px;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+section{padding:72px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(26px,5vw,36px);margin:0 0 36px;font-weight:800}
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{display:flex;flex-direction:column;gap:6px;background:var(--panel);color:var(--on-panel);padding:28px;border-radius:14px;text-decoration:none}
+.card b{font-size:21px}
+.card span{font-size:16px}
+.card em{font-style:normal;font-weight:700;margin-top:10px;text-decoration:underline;text-underline-offset:4px}
+.card:hover,.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+ol.steps{list-style:none;margin:0;padding:0}
+ol.steps li{display:grid;grid-template-columns:3.2em 1fr;gap:6px 12px;padding:22px 0;border-bottom:1px solid var(--line)}
+ol.steps li:last-child{border-bottom:0}
+ol.steps b{font-size:26px;font-weight:900;color:var(--accent);grid-row:span 2}
+ol.steps strong{font-size:19px}
+ol.steps span{color:var(--muted)}
+.back{display:inline-block;margin:36px 0 0;color:var(--ink);font-weight:700;text-underline-offset:4px}
+.detail{padding:24px 0 80px}
+.detail h1{font-weight:900;font-size:clamp(36px,8vw,64px);line-height:1.15;margin:20px 0 16px}
+.detail .lead{font-size:20px;color:var(--muted);max-width:32em;margin:0 0 40px}
+.block{background:var(--panel);color:var(--on-panel);border-radius:14px;padding:26px 28px;margin:0 0 16px}
+.block h2{font-size:20px;margin:0 0 12px;font-weight:800}
+.block p,.block li{font-size:17px;margin:0}
+.block ul,.block ol{margin:0;padding-left:1.3em;display:grid;gap:6px}
+.detail .btn{margin-top:24px}
+.big{font-size:20px;color:var(--muted);max-width:32em;margin:0 0 36px}
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:200px 1fr;gap:12px 32px;padding:28px 0;border-bottom:1px solid var(--line)}
+.row h2{font-size:18px;margin:0;color:var(--accent);font-weight:700}
+.row p,.row li{font-size:20px;margin:0}
+.row ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.split{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+.split.rev{grid-template-columns:320px 1fr;align-items:center}
+.block{background:var(--panel);color:var(--on-panel);border-radius:14px;padding:22px 26px;margin:0 0 16px}
+.block h2{font-size:19px;margin:0 0 10px;font-weight:800}
+.block p,.block li{font-size:17px;margin:0}
+.check{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.check li::before{content:"✓ ";font-weight:900}
+.browser{background:var(--panel);border-radius:14px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.25)}
+.bar{display:flex;gap:6px;padding:12px 14px;background:rgba(23,56,42,.12)}
+.bar i{width:10px;height:10px;border-radius:50%;background:rgba(23,56,42,.4)}
+.screen{padding:16px;display:grid;gap:10px}
+.mk{border-radius:8px;padding:16px;font-weight:700;font-size:15px;text-align:center;color:var(--on-panel);background:rgba(31,107,71,.18)}
+.mk.m1{background:var(--bg);color:var(--ink);padding:34px 16px;font-size:18px}
+.mk.m3{background:var(--accent);color:var(--on-accent)}
+.flow{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:40px 0 0}
+.flow span{border:2px solid var(--accent);border-radius:999px;padding:8px 20px;font-weight:700}
+.flow b{color:var(--accent)}
+.phone{width:280px;margin:0 auto;background:var(--panel);border:10px solid #0d2a1c;border-radius:38px;padding:14px 12px 22px;box-shadow:0 14px 34px rgba(0,0,0,.3)}
+.notch{width:70px;height:6px;border-radius:6px;background:rgba(23,56,42,.35);margin:2px auto 12px}
+.phone .screen{padding:0}
+.phone .mk{padding:18px 10px}
+.phone .mk.m1{padding:46px 10px}
+.who{margin:0 0 24px;font-size:18px}
+.feat{border-left:5px solid var(--accent);padding:6px 0 6px 16px;margin:0 0 14px;font-size:19px}
+.tl{margin:28px 0 0;padding:0 0 0 28px;border-left:2px dashed var(--line);list-style:none;display:grid;gap:14px}
+.tl li{position:relative;font-size:18px}
+.tl li::before{content:"";position:absolute;left:-36px;top:.55em;width:14px;height:14px;border-radius:50%;background:var(--accent)}
+.pg .btn{margin-top:32px}
+@media (max-width:720px){.row{grid-template-columns:1fr}.split,.split.rev{grid-template-columns:1fr;gap:32px}}
+.close{background:var(--bg-deep);text-align:center}
+.close h2{margin-bottom:16px}
+.close p{max-width:30em;margin:0 auto 28px;color:var(--muted)}
+footer{padding:28px 0 36px;color:var(--muted);font-size:14px;text-align:center;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#top">김이안</a>
+    <nav><a href="#work">하는 일</a><a href="#process">진행 방식</a><a href="#contact">문의</a></nav>
+  </header>
+
+  <main id="home">
+    <div class="hero">
+      <p class="lead">홈페이지 제작 전문가</p>
+      <h1>김이안<span>보기 좋고, 쓰기 쉬운 홈페이지를 만듭니다</span></h1>
+      <p class="sub">가게, 서비스, 개인 브랜드까지. 무엇을 보여줄지 함께 정리하고, 방문자가 원하는 정보를 바로 찾는 홈페이지로 완성합니다.</p>
+      <a class="btn" href="tel:01059414345">전화 문의하기</a><a class="tel" href="tel:01059414345">010-5941-4345</a>
+    </div>
+
+    <section id="work">
+      <h2>이런 홈페이지를 만듭니다</h2>
+      <div class="work">
+        <a class="card" href="#intro"><b>소개 페이지</b><span>한 페이지로 핵심을 전하는 개인·가게 소개 홈페이지</span><em>자세히 보기</em></a>
+        <a class="card" href="#landing"><b>서비스 랜딩 페이지</b><span>서비스 내용을 이해시키고 문의로 이어지게 설계한 페이지</span><em>자세히 보기</em></a>
+        <a class="card" href="#mobile"><b>모바일 최적화</b><span>휴대폰에서도 읽기 편한 화면으로 모든 페이지를 제작</span><em>자세히 보기</em></a>
+      </div>
+    </section>
+
+    <section id="process">
+      <h2>진행 방식</h2>
+      <ol class="steps">
+        <li><b>1</b><strong>상담</strong><span>목적, 대상, 담을 내용을 먼저 정리합니다.</span></li>
+        <li><b>2</b><strong>디자인 시안</strong><span>분위기와 구성을 확인하고 방향을 확정합니다.</span></li>
+        <li><b>3</b><strong>제작과 수정</strong><span>실제 화면으로 만들고 수정 요청을 반영합니다.</span></li>
+        <li><b>4</b><strong>공개</strong><span>최종 점검 후 홈페이지를 오픈합니다.</span></li>
+      </ol>
+    </section>
+  </main>
+
+    <main id="p-intro" class="detail pg" hidden>
+    <a class="back" href="#work">← 홈으로 돌아가기</a>
+    <h1>소개 페이지</h1>
+    <p class="big">한 페이지로 핵심을 전하는 개인·가게 소개 홈페이지입니다.</p>
+    <div class="rows">
+      <div class="row"><h2>이런 분께 맞아요</h2><p>가게나 자신을 처음 온라인에 알리고 싶은 분</p></div>
+      <div class="row"><h2>포함 내용</h2><ul><li>대표 소개와 하는 일 정리</li><li>연락처 영역과 전화 연결 버튼</li><li>휴대폰 화면 대응</li></ul></div>
+      <div class="row"><h2>진행 순서</h2><p>내용 정리 → 디자인 시안 → 제작과 수정 → 공개</p></div>
+    </div>
+    <a class="btn" href="tel:01059414345">010-5941-4345 전화하기</a>
+  </main>
+
+  <main id="p-landing" class="detail pg" hidden>
+    <a class="back" href="#work">← 홈으로 돌아가기</a>
+    <div class="split">
+      <div>
+        <h1>서비스 랜딩 페이지</h1>
+        <p class="big">서비스를 이해시키고 문의로 이어지도록 설계한 페이지입니다.</p>
+        <div class="block"><h2>이런 분께 맞아요</h2><p>상품이나 서비스를 소개하고 문의를 받고 싶은 분</p></div>
+        <div class="block"><h2>포함 내용</h2><ul class="check"><li>핵심 메시지와 서비스 설명</li><li>진행 방식 안내</li><li>전화 문의 버튼</li></ul></div>
+      </div>
+      <div class="browser" aria-hidden="true">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="screen">
+          <div class="mk m1">핵심 메시지</div>
+          <div class="mk m2">서비스 설명</div>
+          <div class="mk m2">진행 방식</div>
+          <div class="mk m3">전화 문의 버튼</div>
+        </div>
+      </div>
+    </div>
+    <div class="flow"><span>목적 상담</span><b>→</b><span>구성 설계</span><b>→</b><span>제작과 수정</span><b>→</b><span>공개</span></div>
+    <a class="btn" href="tel:01059414345">010-5941-4345 전화하기</a>
+  </main>
+
+  <main id="p-mobile" class="detail pg" hidden>
+    <a class="back" href="#work">← 홈으로 돌아가기</a>
+    <div class="split rev">
+      <div class="phone" aria-hidden="true">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="mk m1">김이안</div>
+          <div class="mk m2">홈페이지 제작</div>
+          <div class="mk m3">전화하기</div>
+        </div>
+      </div>
+      <div>
+        <h1>모바일 최적화</h1>
+        <p class="big">휴대폰에서도 읽기 편한 화면으로 모든 페이지를 제작합니다.</p>
+        <p class="who">방문자 대부분이 휴대폰으로 홈페이지를 보는 분께 맞아요.</p>
+        <div class="feat"><b>작은 화면에 맞는 글자 크기와 배치</b></div>
+        <div class="feat"><b>누르기 쉬운 버튼</b></div>
+        <div class="feat"><b>바로 걸리는 전화 연결</b></div>
+        <ol class="tl"><li>기존 홈페이지 점검</li><li>화면 조정</li><li>실제 휴대폰에서 확인</li></ol>
+        <a class="btn" href="tel:01059414345">010-5941-4345 전화하기</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<section id="contact" class="close">
+  <div class="wrap">
+    <h2>홈페이지가 필요하신가요?</h2>
+    <p>만들고 싶은 홈페이지를 간단히 알려주세요. 필요한 구성과 진행 방법을 안내해 드립니다.</p>
+    <a class="btn" href="tel:01059414345">010-5941-4345 전화하기</a>
+  </div>
+</section>
+<footer>© 2026 김이안. All rights reserved.</footer>
+
+<script>
+var IDS = ["intro", "landing", "mobile"], TITLES = {intro: "소개 페이지", landing: "서비스 랜딩 페이지", mobile: "모바일 최적화"};
+var home = document.getElementById("home");
+function route(){
+  var id = decodeURIComponent(location.hash.slice(1));
+  if (id === "contact") { document.getElementById("contact").scrollIntoView(); return; }
+  IDS.forEach(function(k){ document.getElementById("p-" + k).hidden = (k !== id); });
+  if (IDS.indexOf(id) >= 0) {
+    home.hidden = true;
+    document.title = TITLES[id] + " | 김이안";
+    window.scrollTo(0, 0);
+  } else {
+    home.hidden = false;
+    document.title = "김이안 | 홈페이지 제작 전문가";
+    var t = id && document.getElementById(id);
+    if (t) t.scrollIntoView(); else window.scrollTo(0, 0);
+  }
+}
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
